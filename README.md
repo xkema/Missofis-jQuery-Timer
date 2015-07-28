@@ -1,2 +1,2 @@
-# Missofis-jQuery-Timer
-A simple timer plgin for jQuery
+# Missofis jQuery Timer
+A simple timer plugin for jQuery
