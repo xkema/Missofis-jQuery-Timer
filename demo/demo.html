@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Missofis Countdown Timer</title>
+	<meta charset="utf-8">
+
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../src/jquery.missofis-timer.js"></script>
+
+	<script type="text/javascript">
+	$( function() {
+		// default setup
+		$( '#timer-countdown' ).countdown( {
+            from: 180, // 3 minutes (3*60)
+            to: 0, // stop at zero
+            movingUnit: 1000, // 1000 for 1 second increment/decrements
+            timerEnd: undefined,
+            outputPattern: '$day Day $hour : $minute : $second',
+            autostart: true
+        } );
+		// count up
+		$( '#timer-countup' ).countdown( {
+			from: 0,
+			to: 180	
+		} );
+        // count in-between
+        $( '#timer-countinbetween' ).countdown( {
+            from: 30,
+            to: 20 
+        } );
+        // counter callback
+        $( '#timer-countercallback' ).countdown( {
+            from: 10,
+            to: 0,
+            timerEnd: function() {
+                this.animate( { 'opacity':.5 }, 500 ).css( { 'text-decoration':'line-through' } );
+            } 
+        } );
+        // changed output patterns
+        $( '#timer-outputpattern' ).countdown( {
+            outputPattern: '$day gün $hour saat $minute dakika $second saniye kaldı pampa..',
+            from: 60 * 60 * 24 * 3
+        } );
+	} );
+	</script>
+</head>
+<body>
+
+	<!-- <h1>hola missofis counter!</h1> -->
+
+	<ul>
+		<!-- default setup -->
+		<li>
+			<h2>countdown</h2>
+			<p><small>default setup, counts from 180 to 0</small></p>
+			<p class="timer-holder"><span id="timer-countdown"></span></p>
+			<button>toggle plugin options</button>
+<pre>$( '#timer-countdown' ).countdown( {
+    from: 180, // 3 minutes (3*60)
+    to: 0, // stop at zero
+    movingUnit: 1000, // 1000 for 1 second increment/decrements
+    timerEnd: undefined,
+    outputPattern: '$day Day $hour : $minute : $second',
+    autostart: true
+} );</pre>
+		</li>
+		<!-- countup setup -->
+		<li>
+			<h2>count up</h2>
+			<p><small>reversed default, from 0 to 180</small></p>
+			<p class="timer-holder"><span id="timer-countup"></span></p>
+			<button>toggle plugin options</button>
+<pre>$( '#timer-countup' ).countdown( {
+    from: 0,
+    to: 180 
+} );</pre>
+		</li>
+        <!-- count in between -->
+        <li>
+            <h2>count in-between</h2>
+            <p><small>count from 30 to 20</small></p>
+            <p class="timer-holder"><span id="timer-countinbetween"></span></p>
+            <button>toggle plugin options</button>
+<pre>$( '#timer-countinbetween' ).countdown( {
+    from: 30,
+    to: 20 
+} );</pre>
+        </li>
+        <!-- counter callback -->
+        <li>
+            <h2>counter callback</h2>
+            <p><small>counts from 10 to 0 and calls timer end callback</small></p>
+            <p class="timer-holder"><span id="timer-countercallback"></span></p>
+            <button>toggle plugin options</button>
+<pre>$( '#timer-countercallback' ).countdown( {
+    from: 10,
+    to: 0,
+    timerEnd: function() {
+        this.css( { 'text-decoration':'line-through' } ).animate( { 'opacity':.5 }, 500 );
+    } 
+} );</pre>
+        </li>
+        <!-- custom output pattern -->
+        <li>
+            <h2>custom output pattern</h2>
+            <p><small>changed output pattern</small></p>
+            <p class="timer-holder fatboyslim"><span id="timer-outputpattern"></span></p>
+            <button>toggle plugin options</button>
+<pre>$( '#timer-outputpattern' ).countdown( {
+    outputPattern: '$day gün $hour saat $minute dakika $second saniye kaldı pampa..',
+    from: 60 * 60 * 24 * 3
+} );</pre>
+        </li>
+
+		
+	</ul>
+	
+
+
+
+
+	<style type="text/css">
+	body {
+		font-family: Consolas,monaco,monospace;
+		font-size: 13px;
+		text-align: center;
+	}
+	pre {
+		color: #666666;
+		font-size: 12px;
+		background-color: #f1f1f1;
+		display: none;
+		padding: 10px 2%;
+		width: 50%;
+		margin: 0 auto;
+		overflow: auto;
+		text-shadow: 0px 1px 0px #ffffff;
+		border: 1px solid #e7e7e7;
+		text-align: left !important;
+        tab-size:4;
+        -moz-tab-size: 4;
+        -o-tab-size:  4;
+	}
+    small {
+        color: #7a7a7a;
+        font-style: italic;
+    }
+	.timer-holder {
+		display: block;
+		border: 1px dotted #aaaaaa;
+		max-width: 280px;
+		margin: 0 auto;
+		padding: 10px;
+		margin-bottom: 10px;
+		color: #ff0000;
+		font-weight: bold;
+	}
+    .timer-holder.fatboyslim {
+        max-width: 400px;
+    }
+	ul {
+		list-style: none;
+		padding: 0px;
+	}
+	h2::before,
+	h2::after {
+		content: ' ~ ';
+	}
+	button {
+		margin-bottom: 10px;
+		background-color: #76BB35;
+		border: none;
+		font-size: 11px;
+		line-height: 2;
+		cursor: pointer;
+		color: white;
+        text-decoration: none;
+	}
+	li {
+		display: block;
+		margin-bottom: 20px;
+		/* border-bottom: 1px solid #eeeeee; */
+	}
+	li:last-child {
+		/* border-bottom: none; */
+	}
+	</style>
+
+	<script type="text/javascript">
+	$(function() {
+		$( 'button' ).on( 'click', function() {
+			$( this ).next( 'pre' ).toggle();
+		} );
+	});
+	</script>
+
+
+</body>
+</html>

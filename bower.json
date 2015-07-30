@@ -1,0 +1,27 @@
+{
+  "name": "missofis-jquery-countdown",
+  "version": "1.0.0",
+  "homepage": "https://github.com/xkema/missofis-jquery-countdown",
+  "authors": [
+    "Kemal Yılmaz <kemalxyz@gmail.com>"
+  ],
+  "description": "A simple countdown timer plugin for jQuery",
+  "main": "Gruntfile.js",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "timer",
+    "countdown"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,2 +1,3 @@
-# Missofis jQuery Timer
-A simple timer plugin for jQuery
+# Missofis jQuery Countdown Timer
+
+A simple countdown timer plugin for jQuery
