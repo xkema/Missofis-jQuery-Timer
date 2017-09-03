@@ -54,7 +54,7 @@
 			<h2>countdown</h2>
 			<p><small>default setup, counts from 180 to 0</small></p>
 			<p class="timer-holder"><span id="timer-countdown"></span></p>
-			<button>toggle plugin options</button>
+			<button class="toggle-single-option">toggle plugin options</button>
 <pre>$( '#timer-countdown' ).countdown( {
     from: 180, // 3 minutes (3*60)
     to: 0, // stop at zero
@@ -69,7 +69,7 @@
 			<h2>count up</h2>
 			<p><small>reversed default, from 0 to 180</small></p>
 			<p class="timer-holder"><span id="timer-countup"></span></p>
-			<button>toggle plugin options</button>
+			<button class="toggle-single-option">toggle plugin options</button>
 <pre>$( '#timer-countup' ).countdown( {
     from: 0,
     to: 180 
@@ -80,7 +80,7 @@
             <h2>count in-between</h2>
             <p><small>count from 30 to 20</small></p>
             <p class="timer-holder"><span id="timer-countinbetween"></span></p>
-            <button>toggle plugin options</button>
+            <button class="toggle-single-option">toggle plugin options</button>
 <pre>$( '#timer-countinbetween' ).countdown( {
     from: 30,
     to: 20 
@@ -91,7 +91,7 @@
             <h2>counter callback</h2>
             <p><small>counts from 10 to 0 and calls timer end callback</small></p>
             <p class="timer-holder"><span id="timer-countercallback"></span></p>
-            <button>toggle plugin options</button>
+            <button class="toggle-single-option">toggle plugin options</button>
 <pre>$( '#timer-countercallback' ).countdown( {
     from: 10,
     to: 0,
@@ -105,19 +105,23 @@
             <h2>custom output pattern</h2>
             <p><small>changed output pattern</small></p>
             <p class="timer-holder fatboyslim"><span id="timer-outputpattern"></span></p>
-            <button>toggle plugin options</button>
+            <button class="toggle-single-option">toggle plugin options</button>
 <pre>$( '#timer-outputpattern' ).countdown( {
     outputPattern: '$day gün $hour saat $minute dakika $second saniye kaldı pampa..',
     from: 60 * 60 * 24 * 3
 } );</pre>
         </li>
-
 		
 	</ul>
-	
 
+  <div>
+    <button class="expand-all-options">expand all options</button>
+    <button class="collapse-all-options">collapse all options</button>
+  </div>
 
-
+  <div>
+    <a href="https://github.com/xkema/missofis-jquery-countdown">back to GitHub source</a>
+  </div>
 
 	<style type="text/css">
 	body {
@@ -184,13 +188,22 @@
 	li:last-child {
 		/* border-bottom: none; */
 	}
+  .expand-all-options, .collapse-all-options {
+    background: #9e8d8d;
+  }
 	</style>
 
 	<script type="text/javascript">
 	$(function() {
-		$( 'button' ).on( 'click', function() {
+		$( '.toggle-single-option' ).on( 'click', function() {
 			$( this ).next( 'pre' ).toggle();
 		} );
+    $('.expand-all-options').on('click', function () {
+      $('.toggle-single-option').next('pre').show();
+    });
+    $('.collapse-all-options').on('click', function () {
+      $('.toggle-single-option').next('pre').hide();
+    });
 	});
 	</script>
 
